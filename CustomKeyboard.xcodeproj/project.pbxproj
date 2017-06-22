@@ -10,7 +10,7 @@
 		7C26F3E81EF4C13D00139BA0 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26F3E71EF4C13D00139BA0 /* KeyboardViewController.swift */; };
 		7C26F3EC1EF4C13D00139BA0 /* Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7C26F3E51EF4C13D00139BA0 /* Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7C26F3F21EF4C25E00139BA0 /* Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C26F3F11EF4C25E00139BA0 /* Keyboard.xib */; };
-		7C26F3F41EFB540E00139BA0 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26F3F31EFB540E00139BA0 /* Keyboard.swift */; };
+		7C26F3F41EFB540E00139BA0 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26F3F31EFB540E00139BA0 /* KeyboardManager.swift */; };
 		7C26F3F71EFB582E00139BA0 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C26F3F61EFB582E00139BA0 /* MultipeerConnectivity.framework */; };
 		7C26F3F91EFB58B700139BA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C26F3F81EFB58B700139BA0 /* Foundation.framework */; };
 		7C9E23DC1EF38C3700A4BEF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E23DB1EF38C3700A4BEF2 /* AppDelegate.swift */; };
@@ -57,7 +57,7 @@
 		7C26F3E71EF4C13D00139BA0 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		7C26F3E91EF4C13D00139BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C26F3F11EF4C25E00139BA0 /* Keyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Keyboard.xib; sourceTree = "<group>"; };
-		7C26F3F31EFB540E00139BA0 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		7C26F3F31EFB540E00139BA0 /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		7C26F3F61EFB582E00139BA0 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		7C26F3F81EFB58B700139BA0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7C9E23D81EF38C3700A4BEF2 /* CustomKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +148,7 @@
 				7C9E23E21EF38C3700A4BEF2 /* Assets.xcassets */,
 				7C9E23E41EF38C3700A4BEF2 /* LaunchScreen.storyboard */,
 				7C9E23E71EF38C3700A4BEF2 /* Info.plist */,
-				7C26F3F31EFB540E00139BA0 /* Keyboard.swift */,
+				7C26F3F31EFB540E00139BA0 /* KeyboardManager.swift */,
 			);
 			path = CustomKeyboard;
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9E23DE1EF38C3700A4BEF2 /* ViewController.swift in Sources */,
-				7C26F3F41EFB540E00139BA0 /* Keyboard.swift in Sources */,
+				7C26F3F41EFB540E00139BA0 /* KeyboardManager.swift in Sources */,
 				7C9E23DC1EF38C3700A4BEF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +360,7 @@
 		7C26F3EE1EF4C13D00139BA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEVELOPMENT_TEAM = 65ZN6CM2H7;
 				INFOPLIST_FILE = Keyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -373,6 +374,7 @@
 		7C26F3EF1EF4C13D00139BA0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEVELOPMENT_TEAM = 65ZN6CM2H7;
 				INFOPLIST_FILE = Keyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -482,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 65ZN6CM2H7;
 				INFOPLIST_FILE = CustomKeyboard/Info.plist;
@@ -496,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 65ZN6CM2H7;
 				INFOPLIST_FILE = CustomKeyboard/Info.plist;
@@ -546,6 +550,7 @@
 				7C26F3EF1EF4C13D00139BA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C9E23D31EF38C3700A4BEF2 /* Build configuration list for PBXProject "CustomKeyboard" */ = {
 			isa = XCConfigurationList;
