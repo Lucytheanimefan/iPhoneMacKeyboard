@@ -12,7 +12,7 @@ class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
     
-    @IBOutlet var view: UIView!
+    //@IBOutlet var view: UIView!
     
     override func updateViewConstraints() {
         super.updateViewConstraints()

@@ -10,6 +10,9 @@
 		7C26F3E81EF4C13D00139BA0 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26F3E71EF4C13D00139BA0 /* KeyboardViewController.swift */; };
 		7C26F3EC1EF4C13D00139BA0 /* Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7C26F3E51EF4C13D00139BA0 /* Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7C26F3F21EF4C25E00139BA0 /* Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C26F3F11EF4C25E00139BA0 /* Keyboard.xib */; };
+		7C26F3F41EFB540E00139BA0 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26F3F31EFB540E00139BA0 /* Keyboard.swift */; };
+		7C26F3F71EFB582E00139BA0 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C26F3F61EFB582E00139BA0 /* MultipeerConnectivity.framework */; };
+		7C26F3F91EFB58B700139BA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C26F3F81EFB58B700139BA0 /* Foundation.framework */; };
 		7C9E23DC1EF38C3700A4BEF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E23DB1EF38C3700A4BEF2 /* AppDelegate.swift */; };
 		7C9E23DE1EF38C3700A4BEF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E23DD1EF38C3700A4BEF2 /* ViewController.swift */; };
 		7C9E23E11EF38C3700A4BEF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9E23DF1EF38C3700A4BEF2 /* Main.storyboard */; };
@@ -54,6 +57,9 @@
 		7C26F3E71EF4C13D00139BA0 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		7C26F3E91EF4C13D00139BA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C26F3F11EF4C25E00139BA0 /* Keyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Keyboard.xib; sourceTree = "<group>"; };
+		7C26F3F31EFB540E00139BA0 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		7C26F3F61EFB582E00139BA0 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		7C26F3F81EFB58B700139BA0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7C9E23D81EF38C3700A4BEF2 /* CustomKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9E23DB1EF38C3700A4BEF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C9E23DD1EF38C3700A4BEF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C26F3F91EFB58B700139BA0 /* Foundation.framework in Frameworks */,
+				7C26F3F71EFB582E00139BA0 /* MultipeerConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +109,15 @@
 			path = Keyboard;
 			sourceTree = "<group>";
 		};
+		7C26F3F51EFB582E00139BA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C26F3F81EFB58B700139BA0 /* Foundation.framework */,
+				7C26F3F61EFB582E00139BA0 /* MultipeerConnectivity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7C9E23CF1EF38C3700A4BEF2 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +125,7 @@
 				7C9E23EF1EF38C3700A4BEF2 /* CustomKeyboardTests */,
 				7C26F3E61EF4C13D00139BA0 /* Keyboard */,
 				7C9E23D91EF38C3700A4BEF2 /* Products */,
+				7C26F3F51EFB582E00139BA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +148,7 @@
 				7C9E23E21EF38C3700A4BEF2 /* Assets.xcassets */,
 				7C9E23E41EF38C3700A4BEF2 /* LaunchScreen.storyboard */,
 				7C9E23E71EF38C3700A4BEF2 /* Info.plist */,
+				7C26F3F31EFB540E00139BA0 /* Keyboard.swift */,
 			);
 			path = CustomKeyboard;
 			sourceTree = "<group>";
@@ -290,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9E23DE1EF38C3700A4BEF2 /* ViewController.swift in Sources */,
+				7C26F3F41EFB540E00139BA0 /* Keyboard.swift in Sources */,
 				7C9E23DC1EF38C3700A4BEF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
