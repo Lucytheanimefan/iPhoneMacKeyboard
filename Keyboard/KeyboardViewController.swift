@@ -24,21 +24,20 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidLoad()
         
         
-        // Perform custom UI setup here
-        loadInterface()
+        //loadInterface()
     }
     
     func loadInterface() {
         // load the nib file
         let keyboardNib = UINib(nibName: "Keyboard", bundle: nil)
         // instantiate the view
-        let keyboardView = keyboardNib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        let keyboard = keyboardNib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
         // add the interface to the main view
-        view.addSubview(keyboardView)
+        keyboardView.addSubview(keyboard)
         
         // copy the background color
-        view.backgroundColor = UIColor.blue
+        keyboardView.backgroundColor = UIColor.blue
     }
     
     
