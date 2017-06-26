@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.customkeyboard.keyboard</string>
+		<string>group.lucy.CustomKeyboard.Keyboard</string>
 	</array>
 </dict>
 </plist>

@@ -1,8 +1,8 @@
 //
 //  KeyboardViewController.swift
-//  Keyboard
+//  keyboard
 //
-//  Created by Lucy Zhang on 6/16/17.
+//  Created by Lucy Zhang on 6/25/17.
 //  Copyright © 2017 Lucy Zhang. All rights reserved.
 //
 
@@ -12,8 +12,6 @@ class KeyboardViewController: UIInputViewController {
 
     @IBOutlet var nextKeyboardButton: UIButton!
     
-    @IBOutlet var keyboardView: UIView!
-
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
@@ -23,23 +21,20 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Perform custom UI setup here
+        self.nextKeyboardButton = UIButton(type: .system)
         
-        //loadInterface()
+        self.nextKeyboardButton.setTitle(NSLocalizedString("Anime is cool", comment: "Title for 'Next Keyboard' button"), for: [])
+        self.nextKeyboardButton.sizeToFit()
+        self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
+        
+        self.view.addSubview(self.nextKeyboardButton)
+        
+        self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
-    
-    func loadInterface() {
-        // load the nib file
-        let keyboardNib = UINib(nibName: "Keyboard", bundle: nil)
-        // instantiate the view
-        let keyboard = keyboardNib.instantiate(withOwner: self, options: nil)[0] as! UIView
-        
-        // add the interface to the main view
-        keyboardView.addSubview(keyboard)
-        
-        // copy the background color
-        keyboardView.backgroundColor = UIColor.blue
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,6 +47,15 @@ class KeyboardViewController: UIInputViewController {
     
     override func textDidChange(_ textInput: UITextInput?) {
         // The app has just changed the document's contents, the document context has been updated.
+        
+        var textColor: UIColor
+        let proxy = self.textDocumentProxy
+        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
+            textColor = UIColor.white
+        } else {
+            textColor = UIColor.black
+        }
+        self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
 
 }
