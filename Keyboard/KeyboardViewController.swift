@@ -22,6 +22,11 @@ class KeyboardViewController: UIInputViewController {
         super.viewDidLoad()
         
         // Perform custom UI setup here
+        createNextButton()
+        
+    }
+    
+    func createNextButton(){
         self.nextKeyboardButton = UIButton(type: .system)
         
         self.nextKeyboardButton.setTitle(NSLocalizedString("Anime is cool", comment: "Title for 'Next Keyboard' button"), for: [])
