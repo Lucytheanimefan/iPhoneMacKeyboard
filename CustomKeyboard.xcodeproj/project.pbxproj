@@ -16,6 +16,7 @@
 		7C9E23E31EF38C3700A4BEF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9E23E21EF38C3700A4BEF2 /* Assets.xcassets */; };
 		7C9E23E61EF38C3700A4BEF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9E23E41EF38C3700A4BEF2 /* LaunchScreen.storyboard */; };
 		7C9E23F11EF38C3700A4BEF2 /* CustomKeyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9E23F01EF38C3700A4BEF2 /* CustomKeyboardTests.swift */; };
+		7CB46A4F1F09A8D100C433D4 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26F3F31EFB540E00139BA0 /* KeyboardManager.swift */; };
 		810A20961F00FE9E00498625 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810A20951F00FE9E00498625 /* AppDelegate.swift */; };
 		810A20981F00FE9E00498625 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810A20971F00FE9E00498625 /* ViewController.swift */; };
 		810A209B1F00FE9E00498625 /* KeyboardMacDaemon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 810A20991F00FE9E00498625 /* KeyboardMacDaemon.xcdatamodeld */; };
@@ -364,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB46A4F1F09A8D100C433D4 /* KeyboardManager.swift in Sources */,
 				7C81C8401F00CAD2005A0A62 /* KeyboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +702,7 @@
 				810A20A31F00FE9E00498625 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

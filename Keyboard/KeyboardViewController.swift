@@ -8,9 +8,11 @@
 
 import UIKit
 
-class KeyboardViewController: UIInputViewController {
-
+class KeyboardViewController: UIInputViewController, KeyboardManagerDelegate {
+    
     @IBOutlet var nextKeyboardButton: UIButton!
+    
+    let keyboardServiceManager = KeyboardManager()
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -21,8 +23,11 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Perform custom UI setup here
+        keyboardServiceManager.delegate = self
         createNextButton()
+        
+        //test
+        keyboardServiceManager.send(keyboard: "TEST DATA ANIME IS COOL")
         
     }
     
@@ -62,5 +67,19 @@ class KeyboardViewController: UIInputViewController {
         }
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
-
+    
+    // MARK : KeyboardManagerDelegate
+    func connectedDevicesChanged(manager : KeyboardManager, connectedDevices: [String]){
+        OperationQueue.main.addOperation {
+            print("Connected devices: ")
+            print(connectedDevices)
+        }
+    }
+    func keyboardChanged(manager : KeyboardManager, keyboardData:String){
+        OperationQueue.main.addOperation {
+            print("keyboardChanged: keyboard data: ")
+            print(keyboardData)
+        }
+    }
+    
 }
