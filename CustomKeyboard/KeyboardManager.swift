@@ -24,6 +24,7 @@ class KeyboardManager: NSObject {
     private let serviceType = "keyboard"
     private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
+
     var delegate: KeyboardManagerDelegate?
     
     lazy var session : MCSession = {
@@ -41,7 +42,7 @@ class KeyboardManager: NSObject {
         super.init()
         self.serviceAdvertiser.delegate = self
         self.serviceAdvertiser.startAdvertisingPeer()
-        
+
         self.serviceBrowser.delegate = self
         self.serviceBrowser.startBrowsingForPeers()
     }

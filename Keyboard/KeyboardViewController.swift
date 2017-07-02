@@ -8,9 +8,11 @@
 
 import UIKit
 
-class KeyboardViewController: UIInputViewController {
+class KeyboardViewController: UIInputViewController, KeyboardManagerDelegate {
 
     @IBOutlet var nextKeyboardButton: UIButton!
+    
+    let keyboardServiceManager = KeyboardManager()
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -21,8 +23,9 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Perform custom UI setup here
+        keyboardServiceManager.delegate = self
         createNextButton()
+        createTestButton()
         
     }
     
@@ -39,6 +42,19 @@ class KeyboardViewController: UIInputViewController {
         
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    }
+    
+    
+    func createTestButton(){
+        var testButton:UIButton = UIButton(type: .custom)
+        testButton.addTarget(self, action: #selector(sendKeyboardData), for: .touchUpInside)
+        testButton.tag = 1
+        self.view.addSubview(testButton)
+    }
+    
+    func sendKeyboardData(sender: UIButton!){
+        //test
+        keyboardServiceManager.send(keyboard: "TEST DATA ANIME IS COOL")
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,6 +77,20 @@ class KeyboardViewController: UIInputViewController {
             textColor = UIColor.black
         }
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
+    }
+    
+    // MARK : KeyboardManagerDelegate
+    func connectedDevicesChanged(manager : KeyboardManager, connectedDevices: [String]){
+        OperationQueue.main.addOperation {
+            print("Connected devices: ")
+            print(connectedDevices)
+        }
+    }
+    func keyboardChanged(manager : KeyboardManager, keyboardData:String){
+        OperationQueue.main.addOperation {
+            print("keyboardChanged: keyboard data: ")
+            print(keyboardData)
+        }
     }
 
 }
