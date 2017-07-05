@@ -1,30 +1,28 @@
 //
-//  KeyboardManager.swift
+//  KeyboardMacManager.swift
 //  CustomKeyboard
 //
-//  Created by Lucy Zhang on 6/21/17.
+//  Created by Lucy Zhang on 7/4/17.
 //  Copyright © 2017 Lucy Zhang. All rights reserved.
 //
 
 import Foundation
-//import UIKit
 import MultipeerConnectivity
 
-protocol KeyboardManagerDelegate {
+protocol KeyboardMacManagerDelegate {
     
-    func connectedDevicesChanged(manager : KeyboardManager, connectedDevices: [String])
-    func keyboardChanged(manager : KeyboardManager, keyboardData:String)
+    func connectedDevicesChanged(manager : KeyboardMacManager, connectedDevices: [String])
+    func keyboardChanged(manager : KeyboardMacManager, keyboardData:String)
     
 }
 
-
-class KeyboardManager: NSObject {
-
-    static let sharedInstance = KeyboardManager()
+class KeyboardMacManager:NSObject{
+    
+    static let sharedInstance = KeyboardMacManager()
     private let serviceType = "keyboard"
-    private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    private let myPeerId = MCPeerID(displayName: "Lucytheanimefan")//Host.current().name!)
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
-    var delegate: KeyboardManagerDelegate?
+    var delegate: KeyboardMacManagerDelegate?
     
     lazy var session : MCSession = {
         let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .required)
@@ -48,11 +46,11 @@ class KeyboardManager: NSObject {
     
     deinit {
         self.serviceAdvertiser.stopAdvertisingPeer()
-         self.serviceBrowser.stopBrowsingForPeers()
+        self.serviceBrowser.stopBrowsingForPeers()
     }
     
     func send(keyboard: String){ //TODO: create a data model for keyboard data
-         NSLog("%@", "send keyboard: \(keyboard) to \(session.connectedPeers.count) peers")
+        NSLog("%@", "send keyboard: \(keyboard) to \(session.connectedPeers.count) peers")
         if session.connectedPeers.count > 0 {
             do {
                 try self.session.send(keyboard.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
@@ -63,10 +61,11 @@ class KeyboardManager: NSObject {
         }
     }
     
+    
 }
 
 //TODO: keyboard stuff
-extension KeyboardManager: MCNearbyServiceAdvertiserDelegate{
+extension KeyboardMacManager: MCNearbyServiceAdvertiserDelegate{
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: Error) {
         NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
     }
@@ -77,7 +76,7 @@ extension KeyboardManager: MCNearbyServiceAdvertiserDelegate{
     }
 }
 
-extension KeyboardManager: MCNearbyServiceBrowserDelegate {
+extension KeyboardMacManager: MCNearbyServiceBrowserDelegate {
     
     func browser(_ browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: Error) {
         NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
@@ -95,7 +94,7 @@ extension KeyboardManager: MCNearbyServiceBrowserDelegate {
     
 }
 
-extension KeyboardManager: MCSessionDelegate {
+extension KeyboardMacManager: MCSessionDelegate {
     
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         NSLog("%@", "peer \(peerID) didChangeState: \(state)")
@@ -120,5 +119,4 @@ extension KeyboardManager: MCSessionDelegate {
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
         NSLog("%@", "didFinishReceivingResourceWithName")
     }
-    
 }

@@ -12,7 +12,7 @@ class KeyboardViewController: UIInputViewController, KeyboardManagerDelegate {
     
     @IBOutlet var nextKeyboardButton: UIButton!
     
-    let keyboardServiceManager = KeyboardManager()
+    let keyboardServiceManager = KeyboardManager.sharedInstance
     
     override func updateViewConstraints() {
         super.updateViewConstraints()

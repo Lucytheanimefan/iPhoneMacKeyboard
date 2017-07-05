@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C0AABB81F0C79B3005821E5 /* KeyboardMacManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0AABB71F0C79B3005821E5 /* KeyboardMacManager.swift */; };
 		7C26F3F41EFB540E00139BA0 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C26F3F31EFB540E00139BA0 /* KeyboardManager.swift */; };
 		7C81C8401F00CAD2005A0A62 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C81C83F1F00CAD2005A0A62 /* KeyboardViewController.swift */; };
 		7C81C8441F00CAD2005A0A62 /* keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7C81C83D1F00CAD2005A0A62 /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C0AABB71F0C79B3005821E5 /* KeyboardMacManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardMacManager.swift; sourceTree = "<group>"; };
 		7C26F3F31EFB540E00139BA0 /* KeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		7C26F3F61EFB582E00139BA0 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		7C26F3F81EFB58B700139BA0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,6 +190,7 @@
 				810A209E1F00FE9E00498625 /* Main.storyboard */,
 				810A20A11F00FE9E00498625 /* Info.plist */,
 				810A20991F00FE9E00498625 /* KeyboardMacDaemon.xcdatamodeld */,
+				7C0AABB71F0C79B3005821E5 /* KeyboardMacManager.swift */,
 			);
 			path = KeyboardMacDaemon;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C0AABB81F0C79B3005821E5 /* KeyboardMacManager.swift in Sources */,
 				810A20981F00FE9E00498625 /* ViewController.swift in Sources */,
 				810A209B1F00FE9E00498625 /* KeyboardMacDaemon.xcdatamodeld in Sources */,
 				810A20961F00FE9E00498625 /* AppDelegate.swift in Sources */,
